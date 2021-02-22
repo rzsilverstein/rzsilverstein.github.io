@@ -4,8 +4,8 @@
 <script type="text/javascript">
     
     function handleInput(){
-        var input = document.getElementById("input").value
-        document.getElementById("answer").innerHTML = input
+        var input = document.getElementById("input").value;
+        document.getElementById("answer").innerHTML = input;
 
         //var el = document.getElementById("answer");
 		//el.remove(); // Removes the answer node
@@ -14,8 +14,9 @@
 		var b = 1.0, // float
 		var c = "huh"  //string
 
-		var someJson ={"someFeild": 7,
-						"anotherFeild": {"a":5}}
+		//var someJson ={"someFeild": 7,"anotherFeild": {"a":5}}
+
+		someJson["anotherFeild"]["a"] ="should work"
 
 		document.getElementById("answer").innerHTML = someFeild['someFeild']
 
