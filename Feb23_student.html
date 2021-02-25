@@ -8,7 +8,7 @@
       <title>Example Mouse Tracker</title>
       <style>    
         body {height: 3000px;}
-        .dot{width: 7px;height: 7px;background-color: green;position: absolute;}
+        .dot {width: 2px;height: 2px;background-color: black;position: absolute;}
       </style>
     </head>
     <body>
@@ -31,28 +31,18 @@
 
         var pos = e;
         var dot;
-        dotElem = document.createElement('div');  // java comment
+        dot = document.createElement('div');
 
-        // console.log(e)
-
-        dotElem.className = "dot";
-        dotElem.style.left = pos.x + "px";
-        dotElem.style.top = pos.y + "px";
+        dot.className = "dot";
+        dot.style.left = pos.x + "px";
+        dot.style.top = pos.y + "px";
 
         var element = document.getElementById("main");
 
-        if (true){
-            console.log("should this fire?")
-        }else{
-            console.log("other thing")
-        }
-
         element.appendChild(dot);
     }      
-
     </script>
 
-    <!-- html comment -->
     <div>
         <span>Red</span>
     </div>
