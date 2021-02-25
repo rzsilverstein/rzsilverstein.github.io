@@ -1,41 +1,103 @@
-<!DOCTYPE html>
+
+<!doctype html>
+
+<h1>What is going on with the Bachelor this season?</h1>
+
+<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/matt-james-bachelor-1607972824-web-1608070765.jpg" alt="bachelor contentestants" width = "600">
+
+
+<h2 style="color:#ff6347;"> Is the drama with Matt James, Chris Harrison or one of the Ladies? </h2>
+    <body>      Alright, I'll just get right to it -- it has been found that contestant Rachael Kirkconnell has a history of offensive and rasict behaviors.  24-year-old Kirkconnell is from Cumming, Georgia.  Kirkconnell is currently on Matt James' season of the bachelor, she is still in the running for Matt's heart and will be proceeding into hometowns this Monday (2/22), the episode airs at 7PM MST.
+    </body>
+
+<h4> an image of rachael kirkconnell for reference: </h4>
+
+<img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2021%2F02%2F12%2F156151_3379A.jpg" alt=" rachael kirkconnell" width = "300">
+Rachael has attended an <a href="https://screenrant.com/bachelor-rachael-kirkconnell-antebellum-party-racist-chris-harrison/">"Old South-themed antebellum party"</a>, and had "bullied" of women for liking Black men in highschool. 
+<br>
+<br>
+I pulled this quote from the link above:
+
+<blockquote>  the word “Antebellum” is typically used to refer to the pre-Civil War Old South, when slavery was still legal and plantations were commonplace. </blockquote>
+<br>
+<p> &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733 &#9733</p>
+<script>
+var counter = 0
+
+function incrementCounter() {
+    counter += 1
+    document.getElementById("counter").innerHTML = counter;
+    console.log(counter)
+}
+   </script>
+   <p style="color:SlateBlue;" >Racist Acts <span id="counter">0</span></p>
+
+   <button style="color:SlateBlue;" type="button" onclick="incrementCounter()">Click me to increase the number of times you think Rachael has committed a rascit act</button> 
+
+<p>     Well, it turns out that Rachael did infact attend a ball that celebrates slavery as well as culturally aproprating for halloween custumes.  Crazy how ironic that is. Below are two pictures to display the irony: <br> (for explaination, Matt James is BIPOC) <br>
+   <img src="https://www.cheatsheet.com/wp-content/uploads/2021/01/Rachael-and-Matt-James-The-Bachelor-1024x820.jpg" alt="rachael and matt 1" width = "300">
+   <img src="https://www.usmagazine.com/wp-content/uploads/2021/01/Rachael-Kirkconnell-5-Things-Know-About-Matt-Contestant-001.jpg?quality=86&strip=all" alt="rachael and matt 2" width = "300">
+<br>
+
+ <p>    Unfortunatley the story doesnt end there.  Former Bachelorette Rachel Lindsay made history when she became the first Black Bachelorette.  Lindsay had an interview with host Chris Harrison to talk about the news about Rachael Kirkconnels rasict actions.  In that video interview, Harrsion basically said that Rachael Kirkconnels actions were acceptable. Harrsion asked if attending an Antebellum party was not ok in 2021 or 2018.  Lindsay fired back saying its never okay.
+<br>
+<h3 style="color:Orange;"> Here is the interview between Chris Harrison and Rachel Lindsay:</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/9hmY1gSAuRk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+ <p> Due to Harrison's inability to denounce Rachael Kirkconnels actions in the interview with Lindsay there has been major backlash against the Bachelor/ette community.  Additionally it is in question whether or not Chris Harrison should be allowed to contiune as host.  </p>
+
+ <h2 style="color:Violet;"> Before I give you more details into what Bachelor Nation thinks about Chris Harrisons job, I want to get your opinion</h2>
+<br>
 <html>
-
-<script type="text/javascript">
-    
-    function handleInput(){
-        var input = document.getElementById("input").value
-        document.getElementById("answer").innerHTML = input
-        document.getElementById("unique").innerHTML = input + "_tothemoon"
-        document.getElementById("someID").src = input
-
-        var node = document.createElement("div");                 // Create a <li> node
-        node.innerHTML = "test"
-        document.getElementById("answer").appendChild(node);   
-
+<head>
+<script>
+function getVote(int) {
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("poll").innerHTML=this.responseText;
     }
-
-
-    // 1. update the image 
-    // 2. two different inputs
-    // 3. Change color
-
+  }
+  xmlhttp.open("GET","poll_vote.php?vote="+int,true);
+  xmlhttp.send();
+}
 </script>
-
+</head>
 <body>
 
-<h1>What will happen to Dogecoin?</h1>
-<h4 id="answer">It will break the power grid</h4>
-<h4 id="unique">To the moon</h4>
-
-<img id="someID" width="300px" src="https://cdn.vox-cdn.com/thumbor/IScTDQZVnUeO-aaXiIxx__oI5_8=/21x0:539x345/1820x1213/filters:focal(21x0:539x345):format(webp)/cdn.vox-cdn.com/assets/3727699/Dogecoin_logo.png" alt="Dogecoin">
-
-<br>
-<input type="text" id="input" name="fname">
-<input onclick="handleInput()" 
-       class="favorite styled"
-       type="button"
-       value="Submit">
+<div id="poll">
+<h3>Do you think Chris Harrison should keep his job?</h3>
+<form>
+Yes: <input type="radio" name="vote" value="0" onclick="getVote(this.value)"><br>
+No: <input type="radio" name="vote" value="1" onclick="getVote(this.value)">
+</form>
+</div>
 
 </body>
 </html>
+
+<br>
+<br>
+<p> Chris Harrsion will be temporarily stepping away from his job on the Bachelor/ette.  Rachel Lindsay has <a href="https://www.thewrap.com/rachel-lindsay-should-chris-harrison-be-fired-bachelor-apology/">commended</a> Harrison for stepping down and says that we'll see what happens for the rest of his career.
+    </p>
+<br>
+<br>
+<a href="https://bachelor-nation.fandom.com/wiki/Bachelor_Nation_Wiki">Visit Fandom.com to learn more about Bacheor Drama!</a>
+
+<br>
+<br>
+<p> On the last season of the Bachelorette Chris Harrison ended up taking a week off while he brought his child to college.  In this time JoJo Fletcher who was a contestant on the 20th season of the Bachelor and then became the Bachelorette herself in 2016 stepped in to host for the week.  On Jojo's bachelorette season <a href= "https://en.wikipedia.org/wiki/JoJo_Fletcher#:~:text=Fletcher%20was%20announced%20as%20the,currently%20resides%20in%20Dallas%2C%20Texas."> in the end, Fletcher chose former pro-quarterback Jordan Rodgers".</a>   Due to the backlash that Harrison is getting and his temporary leave on the show people have been speculating if Jojo will end up permentally replacing Chris Harrison.  
+    <br> While Jojos appreiance makes her seem like the reasonable replacement, there are many other people who would do the job well.  The list of possible Chris Harrison includess but is not limited to:
+    <ul>
+  <li>JoJo Fletcher</li>
+  <li>Ben Higgins - former Bachelor</li>
+  <li>Tayshia Adams - the most recent Bachelorette</li>
+  <li>Tyler Cameron - Matt James' real-life best friend</li>
+  <li>Rachel Lindsay - first black bachelorette</li>
+
+</ul>
+
+<a href="https://www.tvinsider.com/gallery/who-will-replace-chris-harrison-host-bachelor-photos/#6"> Possible Chris Harrison Replacements</a>
+
+<br>
