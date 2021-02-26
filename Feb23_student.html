@@ -9,6 +9,8 @@
       <style>    
         body {height: 3000px;}
         .dot {width: 2px;height: 2px;background-color: black;position: absolute;}
+        .reddot {width: 2px;height: 2px;background-color: red;position: absolute;}
+        .bluedot {width: 2px;height: 2px;background-color: blue;position: absolute;}
       </style>
     </head>
     <body>
@@ -27,19 +29,20 @@
 
     onmousemove = function(e){
         //Logging
-        //console.log("mouse location:", e.clientX, e.clientY);
+        //console.log("mouse location:", e.clientX, e.clientY); 
 
         var pos = e;
         var dot;
         dot = document.createElement('div');
 
-        dot.className = "dot";
+        dot.className = "reddot";
         dot.style.left = pos.x + "px";
         dot.style.top = pos.y + "px";
 
         var element = document.getElementById("main");
-
+                if (pos.x<510 && pos.y<550 && pos.x>10 && pos.y>50){
         element.appendChild(dot);
+        }
     }      
     </script>
 
@@ -48,11 +51,11 @@
     </div>
 
     <div>
-        <span >Blue</span>
+        <span>Blue</span>
     </div>
 
     <div>
-        <span >Black</span>
+        <span>Black</span>
     </div>
 
     </body>
