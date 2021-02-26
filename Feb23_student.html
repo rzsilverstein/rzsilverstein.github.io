@@ -1,6 +1,5 @@
 <!DOCTYPE html>
     <html>
-
     <!-- https://stackoverflow.com/questions/7790725/javascript-track-mouse-position -->
 
     <head>
@@ -24,8 +23,7 @@
     var dotColor = "black";
 
     function setColor(color) {
-        console.log("highlighting")
-       // pass
+       console.log(color)
     }
 
     onmousemove = function(e){
@@ -52,11 +50,11 @@
     </div>
 
     <div>
-        <span>Blue</span>
+        <span onclick="setColor('blue')">Blue</span>
     </div>
 
     <div>
-        <span>Black</span>
+        <span onclick="setColor('black')">Black</span>
     </div>
 
     </body>
