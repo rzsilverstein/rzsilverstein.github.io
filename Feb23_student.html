@@ -23,7 +23,13 @@
     var dotColor = "black";
 
     function setColor(color) {
-       console.log(color)
+       // color is red, blue or black
+      
+      var a = 3; // local
+      
+      if(color == "blue"){
+           dotColor = "blue"
+      }
     }
 
     onmousemove = function(e){
@@ -35,6 +41,10 @@
         dot = document.createElement('div');
 
         dot.className = "reddot";
+                if (dotColor == "blue"){
+            dot.className = "bluedot"; 
+        }
+      
         dot.style.left = pos.x + "px";
         dot.style.top = pos.y + "px";
 
