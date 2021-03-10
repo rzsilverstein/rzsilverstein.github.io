@@ -8,9 +8,9 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ['Colorado', 'New Mexico', 'Washington', 'California', 'Arizona', 'Montana','Massachusetts','Nevada'],
         datasets: [{
-            label: '# of Electoral College Votes',
+            label: '# of Electoral College Votes', {font}
             data: [9, 5, 12, 55, 11, 3, 11, 6],
-
+            
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -39,7 +39,7 @@ var myChart = new Chart(ctx, {
             yAxes: [{
                 ticks: {
                     beginAtZero: true
-
+                }
             }]
         }
     }
