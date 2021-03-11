@@ -9,6 +9,7 @@
 
 <canvas id="myChart" width="350" height="167"></canvas>
 <script>
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
@@ -37,11 +38,11 @@ var myChart = new Chart(ctx, {
                 'rgba(0, 51, 102, 1)',
                 'rgba(104, 104, 0, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 3
         }]
     },
     options: {
-        scales: {
+        legend: { 'bottom',
             yAxes: [{
                 ticks: {
                     beginAtZero: true
