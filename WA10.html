@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/black.min.css" id="theme">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/serif.min.css" id="theme">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
@@ -17,34 +17,66 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1> WOO! </h1>
-					<p style="font-weight: bold;">Block Shelton</p>
-					<img src="https://media.giphy.com/media/sWog4ArVlts8Lkj361/giphy.gif">
+					<h1> WA #10</h1>
+					<p >Tutorial Assignment</p>
+					<p style="font-weight: bold;">Rachel Silverstein</p>
+					<img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif">
 
 				</section>
-
-
 				<section>
-					EMOJI!
-					<p>&#x1F32E &#x1F32F &#x1F32D</p>
-				</section>
-
-				<section>
-					<p>Code Block Slide</p>
-					<pre><code data-trim data noescape>
-						def addition(a,b)
-							return a+b
-					</code></pre>
-				</section>
-
-				<section>
-					<p>Animation Slide</p>
+					<p>How do I add page numbers?</p>
+					<p>what about the vertical slides?</p>
 					<br>
-					<p class = "fragment highlight-blue"> Hello </p>
-					<p class = "fragment highlight-"> my name is</p>
-					<p class = "fragment fade-in-then-grow"> Rachel</p>
+					<pre><code data-trim data noescape>
+
+					script
+						Reveal.initialize({
+						hash: true,
+						slideNumber: 'h.v' 
+					});
+					script
+
+				</code></pre>
+	
+				<p>The page number syntax is located at the bottom of your code within the final script tag</p>
+				<p> by using the syntax 'h.v' it allows you to see the vertical page numbers as decimal points</p>
+				</section>
 
 
+
+
+				<section>
+					<p>Transitions</p>
+					<p>to view the transition click the arrow pointing downward</p>
+				
+					<pre><code data-trim data noescape>
+					section data-transition="slide"
+					    Transitions give …
+					/section
+					section data-transition="slide"
+					    an alternative way …
+					/section
+					section data-transition="slide-in fade-out"
+					    to view the next slide.
+				</code></pre>
+				</section>
+				<section>
+						<section data-transition="slide">
+							Transitions give …
+						</section>
+						<section data-transition="slide">
+							an alternative way …
+						</section>
+						<section data-transition="slide-in fade-out">
+							to view the next text.
+						</section>
+					</section>
+
+				<section>
+					
+					<h1>please give me 100%</h1>
+
+				</section>
 
 			</div>
 		</div>
@@ -59,6 +91,7 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				slideNumber: 'h.v',
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
