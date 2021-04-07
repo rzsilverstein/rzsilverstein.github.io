@@ -18,6 +18,7 @@
 
 	</head>
 	<body>
+
 		<div class="reveal">
 			<div class="slides">
 				<section>
@@ -32,15 +33,7 @@
 
 				<section>
 					<!--Vega visualization goes here-->
-				</section>
-
-				<section>
-					<p>This relationship is interesting because it is non-linear</p>
-					<p>Fuel efficiency drops rapidly with the increase in horsepower</p>
-				</section>
-			</div>
-		</div>
-		<div id="vis"></div>
+					<div id="vis"></div>
 		<script type="text/javascript">
 		var spec = {"$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "config": {
@@ -70,6 +63,15 @@
 		var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
 		vegaEmbed("#vis", spec, opt);
 		</script>
+				</section>
+
+				<section>
+					<p>This relationship is interesting because it is non-linear</p>
+					<p>Fuel efficiency drops rapidly with the increase in horsepower</p>
+				</section>
+			</div>
+		</div>
+		
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
 		<script>
