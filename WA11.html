@@ -110,12 +110,12 @@
 					</section>
 
 				</section>
-
+				
 				<section>
 					<section>
 						<h3>Visualization Two</h3>
 						<p>Monarchs</p>
-						
+						<body>if you look at my code youll see text for the second visualization, and I have no errors with my code so im not sure why viz #2 is not appearing</body>
 						<div id="vis"></div>
 						<script type="text/javascript">
 							var spec = {"$schema": "https://vega.github.io/schema/vega-lite/v4.json",
@@ -144,26 +144,12 @@
 					      "type": "quantitative"
 					    }
 					  },
-					  "mark": "point"};  /* JSON dump of your chart's spec */
-							var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+					  "mark": "point"}; 
+							var opt = {"renderer": "canvas", "actions": false};  
 							vegaEmbed("#vis", spec, opt);
 						</script>
 					</section>
 
-					<section>
-						<h3>Code Block</h3>
-						<p><a href="https://vega.github.io/vega-lite/docs/spec.html">Configuring view</a></p>
-						<pre><code data-trim class='js' data-line-numbers=1|2|3|4|5-6>
-							var spec = {
-							"$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-							"config": {
-								"view": {
-									"continuousHeight": 300,
-									"continuousWidth": 400
-						    		}
-						  	},
-						</code></pre>
-					</section>
 
 					<section>
 						<h3>Code Block</h3>
@@ -208,7 +194,10 @@
 					
 				</section>
 
-
+				<section>
+					<h3>Interpretation</h3>
+					<p style="color:#565A5C">From my visualizations you can see that none of the points overlap.  This is expected as there is only one monarch at a time.</p>
+				</section>
 
 				
 			</div>
