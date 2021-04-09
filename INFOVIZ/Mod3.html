@@ -33,140 +33,18 @@
 						<h3>Task One</h3>
 						<p></p>
 						
+					</section>
+					<img data-src="visualization.pdf"
+					<section>
+
+				</section>
+				</section>
+				<section>
+					<section>
+						<h3>Task Two</h3>
+						<p></p>
 						
-					</section>
-
-					<section>
-						<h3>Code Block</h3>
-						<pre><code data-trim data noescape>
-
-						script type="text/javascript">
-							var spec = {"$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-					  "config": {
-					    "view": {
-					      "continuousHeight": 300,
-					      "continuousWidth": 400
-					    }
-					  },
-					  "width":700,
-					  "height":500,
-					  "data": {
-					    "url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/monarchs.json"
-					  },
-					  "encoding": {
-					    "color": {
-					      "field": "name",
-					      "type": "nominal"
-					    },
-					    "x": {
-					      "field": "start",
-					      "type": "quantitative"
-					    },
-					    "y": {
-					      "field": "end",
-					      "type": "quantitative"
-					    }
-					  },
-					  "mark": "point"};  /* JSON dump of your chart's spec */
-							var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
-							vegaEmbed("#vis", spec, opt);
-						</script>
-
-				</code></pre>
-						<p>This code block is what you would use to incoperate a visualization in reveal.js. </p>
-						<P>Next to where it says "url": you would put the link to your data.</P>
-					</section>
-
-				</section>
-				
-				<section>
-					<section>
-						<h3>Visualization Two</h3>
-						<p>Monarchs</p>
-						<body>if you look at my code youll see text for the second visualization, and I have no errors with my code so im not sure why viz #2 is not appearing</body>
-						<div id="vis"></div>
-						<script type="text/javascript">
-							var spec = {"$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-					  "config": {
-					    "view": {
-					      "continuousHeight": 300,
-					      "continuousWidth": 400
-					    }
-					  },
-					  "width":700,
-					  "height":500,
-					  "data": {
-					    "url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/monarchs.json"
-					  },
-					  "encoding": {
-					    "color": {
-					      "field": "name",
-					      "type": "nominal"
-					    },
-					    "x": {
-					      "field": "start",
-					      "type": "quantitative"
-					    },
-					    "y": {
-					      "field": "end",
-					      "type": "quantitative"
-					    }
-					  },
-					  "mark": "point"}; 
-							var opt = {"renderer": "canvas", "actions": false};  
-							vegaEmbed("#vis", spec, opt);
-						</script>
-					</section>
-
-
-					<section>
-						<h3>Code Block</h3>
-						<p><a href="https://vega.github.io/vega-lite/docs/data.html">Importing data</a></p>
-						<pre><code data-trim class='js' data-line-numbers=2>
-							"data": {
-						    "url": "https://vega.github.io/vega-datasets/data/cars.json"
-						  },
-						</code></pre>
-
-					</section>
-
-					<section>
-						<h3>Code Block</h3>
-						<p><a href="https://vega.github.io/vega-lite/docs/encoding.html">Data encoding</a></p>
-						<pre><code data-trim class='js' data-line-numbers=2-5|6-9|10-12>
-							"encoding": {
-						    "color": {
-						      "field": "Origin",
-						      "type": "nominal"
-						      },
-						    "x": {
-						      "field": "Horsepower",
-						      "type": "quantitative"
-						      },
-						    "y": {
-						      "field": "Miles_per_Gallon",
-						      "type": "quantitative"
-							  }
-							},
-						</code></pre>
-					</section>
-
-					<section>
-						<h3>Code Block</h3>
-						<p><a href="https://vega.github.io/vega-lite/docs/mark.html#types">Mark type</a> defines the basic shape/type of visualization</p>
-						<pre><code data-trim class='js' data-line-numbers>
-							"mark": "point"
-						</code></pre>
-					</section>
-
 					
-				</section>
-
-				<section>
-					<h3>Interpretation</h3>
-					<p style="color:#565A5C">From my visualizations you can see that none of the points overlap.  This is expected as there is only one monarch at a time.</p>
-				</section>
-
 				
 			</div>
 		</div>
