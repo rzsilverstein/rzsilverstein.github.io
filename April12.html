@@ -557,7 +557,34 @@
 							<li>y-axis: "adjusted CO2"</li>
 						</ul>
 					</section>
-
+					<section>
+						<div id="vis-area"></div>
+						<script type="text/javascript">
+						var spec = {
+							"width": 300,
+							"height": 200,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/co2-concentration.csv"
+							},
+							"mark": "area",
+							"encoding": {
+								"x": {
+									"timeUnit": "yearmonth", 
+									"field": "date",
+									"axis": {
+										"format": "%Y"
+									}
+								},
+								"y": {
+									"field": "price",
+									"type": "quantitative"
+								}
+							}
+						};
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#vis-area", spec, opt);
+						</script>
+					</section>
 					<section>
 						<h2>In-class exercise 2</h2>
 						<p>Use the "<a href="https://github.com/vega/vega-datasets/blob/master/data/crimea.json" target="_blank" rel="noopener noreferrer">crimea.json</a>" data to make a bar plot:</p>
