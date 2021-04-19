@@ -1,0 +1,1389 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Week 15 Slides</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/moon.min.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+
+		<!-- Loading Vega-->
+		<script src="https://cdn.jsdelivr.net/npm/vega@5.19.1"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.0.0"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.15.1"></script>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>INFO 3402: Information Exposition</h3>
+					<p style="color:#CFB87C; font-weight:bold;">Brian Keegan & Abram Handler</p>
+					<p style="color:#565A5C">Week 15: April 19 - 23 2021</p>
+				</section>
+				
+
+				<section>
+					<section>
+						<h2>Outline for Week 15</h3>
+						<ul>
+							<li>Previous weeks</li> 
+							<ul>
+								<li><a href="https://cuinfoscience.github.io/INFO3402-Spring2021/Week%2011/slides.html" target="_blank" rel="noopener noreferrer">Week 11</a>: Intro to Reveal.js</li>
+								<li><a href="https://cuinfoscience.github.io/INFO3402-Spring2021/Week%2012/slides.html" target="_blank" rel="noopener noreferrer">Week 12</a>: Intermediate Reveal.js + MathJax</a></li>
+								<li><a href="https://cuinfoscience.github.io/INFO3402-Spring2021/Week%2013/slides.html" target="_blank" rel="noopener noreferrer">Week 13</a>: Introductory Vega/Altair</a></li>
+								<li><a href="https://cuinfoscience.github.io/INFO3402-Spring2021/Week%2014/slides.html" target="_blank" rel="noopener noreferrer">Week 14</a>: Customizing Vega plots</a></li>
+							</ul>
+							<li>Transforming and importing <a href="https://vega.github.io/">Vega</a>/<a href="https://altair-viz.github.io/index.html" target="_blank" rel="noopener noreferrer">Altair</a> plots</li>
+							<ul>
+								<li>Mon: Transforming data</li>
+								<li>Wed: Reading in data</li>
+								<li>Fri: In-class exercises</li>
+							</ul>
+							<li>Weekly Assignment 13</li>
+							<ul>
+								<li>Due Monday, April 26 by midnight</li>
+							</ul>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Roadmap for rest of semester</h2>
+						<table class="reveal" style="font-size: 65%">
+							<tr>
+								<td>Week</td>
+								<td>Topic</td>
+								<td>WA deadline</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>Customizing Vega plots</td>
+								<td>Apr 16</td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>Integrating data into Vega</td>
+								<td>Apr 23</td>
+							</tr>
+							<tr>
+								<td>16</td>
+								<td>Advanced Vega visualizations</td>
+								<td>Apr 30</td>
+							</tr>
+						</table>
+
+						<p>There is <b>no final exam</b> and <b>no final project</b></p>
+					</section>
+
+					<section>
+						<h2>Why so much Vega?</h2>
+						<p>Vega has a number of benefits!</p>
+						<ul>
+							<li>Free and open-source, no costs like Tableau</li>
+							<li>Powerful, cross-platform, and influential</li>
+							<li>Reinforcing your skills with web tools like CSS+JS</li>
+							<li>Using web to improve communication</li>
+							<li>Alternative to <code>pandas</code> for data transformation</li>
+						</ul>
+						<p>Show off in your capstone, final projects, portfolio!</p>
+					</section>
+
+					<section>
+						<h2>Vega Online Editor</h2>
+						<p>The <a href="https://vega.github.io/editor/" target="_blank" rel="noopener noreferrer">online editor</a> has some nice functionality for developing and debugging your code</p>
+						<p>Great way to iteratively develop your visualizations outside of text editor to browser and back</p>
+						<p>It's less forgiving of stray punctuation, but has lots of nice autocomplete and instant feedback</p>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Weekly Assignment 12</h2>
+						<p>Due tonight by midnight</p>
+						<p>Make two visualizations:</p>
+						<ol>
+							<li>Visualization 1: Customize default appearance</li>
+							<li>Visualization 2: Customize using composition </li>
+						</ol>
+						<p>Include tutorial-style documentation with code blocks and interpret results of visualizations</p>
+						<p>Submit a URL to your GitHub Page on Canvas (<a href="https://canvas.colorado.edu/courses/70121/assignments/956235" target="_blank" rel="noopener noreferrer">link</a>)</p>
+						<p>Peer reviews due Friday, April 23 by midnight</p>
+					</section>
+
+					<section>
+						<h2>Weekly Assignment 13</h2>
+						<p>Due Monday, April 26 by midnight on <a href="https://canvas.colorado.edu/courses/70121/assignments/956236" target="_blank" rel="noopener noreferrer">Canvas</a></p>
+						<ul>
+							<li>Make a single page with nice CSS framework like Bootstrap (think back to WA6)</li>
+							<li>Write a five-paragraph persuasive essay about what the price of DogeCoin reveals about... something</li>
+							<ul>
+								<li>Cryptocurrencies, economics, memes</li>
+							</ul>
+							<li>Include at least two Vega visualizations in your essay</li>
+							<ul>
+								<li>One visualization should use DogeCoin data</li>
+								<li>One visualization should use some other data</li>
+							</ul>
+						</ul>
+						<p>Historical <a href="https://finance.yahoo.com/quote/DOGE-USD/history/" target="_blank" rel="noopener noreferrer">DogeCoin price and volume data from Yahoo! Finance</a> available on Canvas</p>
+					</section>
+
+					<section>
+						<h2>Weekly Assignment 14</h2>
+						<p>Due Friday, April 30 by midnight on <a href="https://canvas.colorado.edu/courses/70121/assignments/1032378" target="_blank" rel="noopener noreferrer">Canvas</a></p>
+						<p>Write a reflection on different ways of presenting quantitative and computational information to different audiences</p>
+						<p>At least three paragraphs describing how to present work to different audiences</p>
+						<p>No peer review, will help us design future versions of 3402</p>
+					</section>
+
+					<section>
+						<h2>Reflection Survey</h2>
+						<p>Short, free-form survey on Canvas asking for your reflections and input on how 3402 can be designed differently in the future</p>
+						<p>"Required" (we'll nag you a lot) but not graded</p>
+						<p>Complete the survey <a href="https://canvas.colorado.edu/courses/70121/quizzes/179907/" target="_blank" rel="noopener noreferrer">here</a></p>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+					<h2>Transformations</h2>
+					<p>Vega includes many <a href="https://vega.github.io/vega-lite/docs/transform.html" target="_blank" rel="noopener noreferrer">data transformation</a> functions</p>
+					<p>Transformers do many powerful data operations within your Vega spec—no need for <code>pandas</code>!</p>
+					<p>There are too many kinds of transforms to cover in a week, we will prioritize the most important ones</p>
+					</section>
+
+					<section>
+						<h2>Transformations</h2>
+						<p>Transformations can be done at either the view-level within a <code>transform</code> object or at the field-level within an <code>encoding</code> object</p>
+
+					</section>
+
+					<section>
+						<h2>Transformations: field-level</h2>
+						<p>We've already seen some examples of field-level transformations using the <a href="https://github.com/vega/vega-datasets/blob/master/data/cars.json" target="_blank" rel="noopener noreferrer">cars</a> data</p>
+
+						<pre><code data-trim class='js' data-line-numbers=3>
+						"encoding": {
+								"x": {"field":"Origin"},
+								"y": {"aggregate": "count"}
+							}
+						</code></pre>
+
+						<div id="vis-bar-car"></div>
+						<script type="text/javascript">
+						var spec = {
+							"width": 300,
+							"height": 150,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/cars.json"
+							},
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"field": "Origin"
+								},
+								"y": {
+									"aggregate": "count",
+								}
+							}
+						};
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#vis-bar-car", spec, opt);
+						</script>
+					</section>
+
+					<section>
+						<h2>Transformations: view-level</h2>
+						<p>We could make the same plot at the view-level inside a <code>transform</code> object</p>
+
+						<pre><code data-trim class='js' data-line-numbers=|5-11|6-9|10|8|19 style="height: 250px">
+						{
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/cars.json"
+							},
+							"transform": [{
+								"aggregate": [{
+									"op": "count",
+									"as": "Origin_Count"
+								}],
+								"groupby": ["Origin"]
+							}],
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"field": "Origin",
+									"type": "nominal"
+								},
+								"y": {
+									"field": "Origin_Count",
+									"type": "quantitative"
+								}
+							}
+						};
+						</code></pre>
+
+						<div id="vis-bar-car2"></div>
+						<script type="text/javascript">
+						var spec = {
+							"width": 300,
+							"height": 150,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/cars.json"
+							},
+							"transform": [{
+								"aggregate": [{
+									"op": "count",
+									"as": "Origin_Count"
+								}],
+								"groupby": ["Origin"]
+							}],
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"field": "Origin",
+									"type": "nominal"
+								},
+								"y": {
+									"field": "Origin_Count",
+									"type": "quantitative"
+								}
+							}
+						};
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#vis-bar-car2", spec, opt);
+						</script>
+					</section>
+
+					<section>
+						<h2>Transformations: view-level</h2>
+						<p>View-level transformations require several fields, making them more verbose than field-level transformations</p>
+						<p>But view-level transforms can be saved as a variable to be passed to other operators</p>
+						<p>We'll see clearer examples of this moving forward</p>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Aggregate</h2>
+						<p><a href="https://vega.github.io/vega-lite/docs/aggregate.html" target="_blank" rel="noopener noreferrer">Aggregation</a> is a ubiquitous data transformation operation used in combination with group-by</p>
+						<p>Aggregate summarizes all the values in each group</p>
+						<p>There are a few dozen supported <a href="https://vega.github.io/vega-lite/docs/aggregate.html#ops" target="_blank" rel="noopener noreferrer">aggregation operations</a></p>
+						<p>If you only learn one transformation, make it aggregate</p>
+					</section>
+
+					<section>
+						<h2>Aggregate: Example</h2>
+						<p>Use the "<a href="https://github.com/vega/vega-datasets/blob/master/data/disasters.csv">disasters</a>" dataset to make a bar plot of total "Deaths" by "Entity"</p>
+						<p>We're going to build up this visualization with more customization step-by-step</p>
+					</section>
+
+					<section>
+						<h2>Aggregate: Example</h2>
+						<p>Use the "<a href="https://github.com/vega/vega-datasets/blob/master/data/disasters.csv">disasters</a>" dataset to make a bar plot of total "Deaths" by "Entity"</p>
+
+						<pre><code data-trim class='js' data-line-numbers=9-13|10|14-17 style="height: 250px">
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/disasters.csv"
+							},
+							"encoding": {
+								"x": {
+									"aggregate": "sum",
+									"field": "Deaths",
+									"type": "quantitative"
+								},
+								"y": {
+									"field": "Entity",
+									"type": "nominal"
+								}
+							},
+							"mark": "bar"
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Aggregate: Example</h2>
+						<p>Use the "<a href="https://github.com/vega/vega-datasets/blob/master/data/disasters.csv">disasters</a>" dataset to make a bar plot of total "Deaths" by "Entity"</p>
+
+						<div id="disaster-bar1"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/disasters.csv"
+							},
+							"encoding": {
+								"x": {
+									"aggregate": "sum",
+									"field": "Deaths",
+									"type": "quantitative"
+								},
+								"y": {
+									"field": "Entity",
+									"type": "nominal"
+								}
+							},
+							"mark": "bar"
+							}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#disaster-bar1", spec, opt);
+						</script>
+					</section>
+
+					<section>
+						<h2>Aggregate: Customize</h2>
+						<p>Add some color to the bar chart</p>
+						<pre><code data-trim class='js' data-line-numbers=18-21>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/disasters.csv"
+							},
+							"encoding": {
+								"x": {
+									"aggregate": "sum",
+									"field": "Deaths",
+									"type": "quantitative"
+								},
+								"y": {
+									"field": "Entity",
+									"type": "nominal"
+								},
+								"color": {
+									"field": "Entity",
+									"type": "nominal"
+								}
+							},
+							"mark": "bar"
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Aggregate + Color</h2>
+						<div id="disaster-bar2"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/disasters.csv"
+							},
+							"encoding": {
+								"x": {
+									"aggregate": "sum",
+									"field": "Deaths",
+									"type": "quantitative"
+								},
+								"y": {
+									"field": "Entity",
+									"type": "nominal"
+								},
+								"color": {
+									"field": "Entity",
+									"type": "nominal"
+								}
+							},
+							"mark": "bar"
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#disaster-bar2", spec, opt);
+						</script>
+					</section>
+
+					<section>
+						<h2>Aggregate + Color + Sort</h2>
+						<p>Sort the bars by their values so it's more meaningful</p>
+						<pre><code data-trim class='js' data-line-numbers=17>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/disasters.csv"
+							},
+							"encoding": {
+								"x": {
+									"aggregate": "sum",
+									"field": "Deaths",
+									"type": "quantitative"
+								},
+								"y": {
+									"field": "Entity",
+									"type": "nominal",
+									"sort": "-x"
+								},
+								"color": {
+									"field": "Entity",
+									"type": "nominal"
+								}
+							},
+							"mark": "bar"
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Aggregate + Color + Sort</h2>
+						<div id="disaster-bar3"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/disasters.csv"
+							},
+							"encoding": {
+								"x": {
+									"aggregate": "sum",
+									"field": "Deaths",
+									"type": "quantitative"
+								},
+								"y": {
+									"field": "Entity",
+									"type": "nominal",
+									"sort": "-x"
+								},
+								"color": {
+									"field": "Entity",
+									"type": "nominal"
+								}
+							},
+							"mark": "bar"
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#disaster-bar3", spec, opt);
+						</script>
+					</section>
+
+					<section>
+						<h2>Aggregate + Color + Sort + Scale</h2>
+						<p>Convert to a log-scale to see the variation in the small values</p>
+						<pre><code data-trim class='js' data-line-numbers=9,13-15>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/disasters.csv"
+							},
+							"encoding": {
+								"x": {
+									"aggregate": "sum",
+									"field": "Deaths",
+									"type": "quantitative",
+									"scale": {
+										"type": "log"
+									}
+								},
+								"y": {
+									"field": "Entity",
+									"type": "nominal",
+									"sort": "-x"
+								},
+								"color": {
+									"field": "Entity",
+									"type": "nominal"
+								}
+							},
+							"mark": "bar"
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Aggregate + Color + Sort + Scale</h2>
+						<div id="disaster-bar4"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/disasters.csv"
+							},
+							"encoding": {
+								"x": {
+									"aggregate": "sum",
+									"field": "Deaths",
+									"type": "quantitative",
+									"scale": {
+										"type": "log"
+									}
+								},
+								"y": {
+									"field": "Entity",
+									"type": "nominal",
+									"sort": "-x"
+								},
+								"color": {
+									"field": "Entity",
+									"type": "nominal"
+								}
+							},
+							"mark": "bar"
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#disaster-bar4", spec, opt);
+						</script>
+					</section>
+
+					<section>
+						<h2>Aggregate + Color + Sort + Scale + Annotate</h2>
+						<p>Add a <code>layer</code> with text marks to annotate the total number of deaths</p>
+
+						<pre><code data-trim class='js' data-line-numbers=27-43|28|29-43|30-35|36-42>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/disasters.csv"
+							},
+							"encoding": {
+								"x": {
+									"aggregate": "sum",
+									"field": "Deaths",
+									"type": "quantitative",
+									"scale": {
+										"type": "log"
+									}
+								},
+								"y": {
+									"field": "Entity",
+									"type": "nominal",
+									"sort": "-x"
+								},
+								"color": {
+									"field": "Entity",
+									"type": "nominal"
+								}
+							},
+							"layer":[{
+								"mark": "bar"
+							},{
+								"mark": {
+									"type": "text",
+									"align": "left",
+									"baseline": "middle",
+									"dx": 5
+								},
+								"encoding": {
+									"text": {
+										"aggregate": "sum",
+										"field": "Deaths",
+										"type": "quantitative"
+									}
+								}
+							}]
+						}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Aggregate + Color + Sort + Scale + Annotate</h2>
+						<div id="disaster-bar5"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/disasters.csv"
+							},
+							"encoding": {
+								"x": {
+									"aggregate": "sum",
+									"field": "Deaths",
+									"type": "quantitative",
+									"scale": {
+										"type": "log"
+									}
+								},
+								"y": {
+									"field": "Entity",
+									"type": "nominal",
+									"sort": "-x"
+								},
+								"color": {
+									"field": "Entity",
+									"type": "nominal"
+								}
+							},
+							"layer":[{
+								"mark": "bar"
+							},{
+								"mark": {
+									"type": "text",
+									"align": "left",
+									"baseline": "middle",
+									"dx": 5
+								},
+								"encoding": {
+									"text": {
+										"aggregate": "sum",
+										"field": "Deaths",
+										"type": "quantitative"
+									}
+								}
+							}]
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#disaster-bar5", spec, opt);
+						</script>
+					</section>
+
+					<section>
+						<h2>Aggregate + Color + Sort + Scale + Annotate + Format</h2>
+						<p><a href="https://observablehq.com/@uwdata/scales-axes-and-legends" target="_blank" rel="noopener noreferrer">This blog post</a> suggests <code>tickCount</code> to lower number of ticks for log-scaled axes</p>
+						<p>Use a <a href="http://numeraljs.com/">registered number format pattern</a> to get commas in big numbers</p>
+						<pre><code data-trim class='js' data-line-numbers=12|17-19|24|46 style="height: 250px">
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/disasters.csv"
+							},
+							"encoding": {
+								"x": {
+									"aggregate": "sum",
+									"field": "Deaths",
+									"title": "Total Deaths",
+									"type": "quantitative",
+									"scale": {
+										"type": "log"
+									},
+									"axis": {
+										"tickCount":5
+									}
+								},
+								"y": {
+									"field": "Entity",
+									"type": "nominal",
+									"title": "Event Type",
+									"sort": "-x"
+								},
+								"color": {
+									"field": "Entity",
+									"type": "nominal"
+								}
+							},
+							"layer":[{
+								"mark": "bar"
+							},{
+								"mark": {
+									"type": "text",
+									"align": "left",
+									"baseline": "middle",
+									"dx": 5
+								},
+								"encoding": {
+									"text": {
+										"aggregate": "sum",
+										"field": "Deaths",
+										"type": "quantitative",
+										"format": ",.0f"
+									}
+								}
+							}]
+						}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Aggregate + Color + Sort + Scale + Annotate + Format</h2>
+						<div class="r-stack">
+						<div id="disaster-bar6"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/disasters.csv"
+							},
+							"encoding": {
+								"x": {
+									"aggregate": "sum",
+									"field": "Deaths",
+									"title": "Total Deaths",
+									"type": "quantitative",
+									"scale": {
+										"type": "log"
+									},
+									"axis": {
+										"tickCount": 5
+									}
+								},
+								"y": {
+									"field": "Entity",
+									"type": "nominal",
+									"title": "Event Type",
+									"sort": "-x"
+								},
+								"color": {
+									"field": "Entity",
+									"type": "nominal"
+								}
+							},
+							"layer":[{
+								"mark": "bar"
+							},{
+								"mark": {
+									"type": "text",
+									"align": "left",
+									"baseline": "middle",
+									"dx": 5
+								},
+								"encoding": {
+									"text": {
+										"aggregate": "sum",
+										"field": "Deaths",
+										"type": "quantitative",
+										"format": ",.0f"
+									}
+								}
+							}]
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#disaster-bar6", spec, opt);
+
+						</script>
+
+						<img src="https://media.giphy.com/media/Ls6ahtmYHU760/giphy.gif" class="fragment fade-left" width=400>
+					</div>
+					</section>
+					
+				</section>
+
+				<section>
+					<section>
+						<h2>Binning</h2>
+						<p><a href="https://vega.github.io/vega-lite/docs/bin.html" target="_blank" rel="noopener noreferrer">Binning</a> converts "quantitative" data into "ordinal" bins</p>
+						<p>The most common use case is making histograms</p>
+						<p>Like other transforms, this can be done at the encoding or view-level</p>
+						<p>Using the "<a href="https://github.com/vega/vega-datasets/blob/master/data/movies.json" target="_blank" rel="noopener noreferrer">movies</a>" data, make a histogram of the "IMDB Rating" field</p>
+					</section>
+
+					<section>
+						<h2>Binning: Encoding-level</h2>
+						<p>Set the <code>bin</code> value in a channel to "true"</p>
+						<pre><code data-trim class='js' data-line-numbers=10-13|11|15>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"bin": true,
+									"field": "IMDB Rating"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Binning: Encoding-level</h2>
+						<div id="imdb-ratings-hist1"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"bin": true,
+									"field": "IMDB Rating"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#imdb-ratings-hist1", spec, opt);
+
+						</script>
+					</section>
+
+					<section>
+						<h2>Binning: View-level</h2>
+						<p>More verbose, but variable assignment can be powerful in more complicated visualizations</p>
+						<p>Need to encode bin start with <code>x</code> and bin end with <code>x2</code></p>
+						<pre><code data-trim class='js' data-line-numbers=8-12|9|10|11,16|23-25|26-28>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"transform": [{
+								"bin": true,
+								"field": "IMDB Rating",
+								"as": "binned rating"
+							}],
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"field": "binned rating",
+									"title": "IMDB Rating (binned)",
+									"bin": {
+										"binned": true,
+										"step": 1
+									}
+								},
+								"x2": {
+									"field": "binned rating_end"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Binning: Encoding-level</h2>
+						<div id="imdb-ratings-hist2"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"transform": [{
+								"bin": true,
+								"field": "IMDB Rating",
+								"as": "binned rating"
+							}],
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"field": "binned rating",
+									"title": "IMDB Rating (binned)",
+									"bin": {
+										"binned": true,
+										"step": 1
+									}
+								},
+								"x2": {
+									"field": "binned rating_end"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#imdb-ratings-hist2", spec, opt);
+
+						</script>
+					</section>
+
+					<section>
+						<h2>Binning: Customization</h2>
+						<p>Default bin count is 10, but this can be customized with the "maxbins" parameter</p>
+						<pre><code data-trim class='js' data-line-numbers=11-13>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"bin": {
+										"maxbins":50
+									},
+									"field": "IMDB Rating"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Binning: Customizations</h2>
+						<div id="imdb-ratings-hist3"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"bin": {"maxbins":50},
+									"field": "IMDB Rating"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#imdb-ratings-hist3", spec, opt);
+
+						</script>
+					</section>
+					
+					<section>
+						<h2>Binning: Customization</h2>
+						<p>Bin range is from min to max values, but sometimes you want a different range</p>
+						<p>Use the "extent" parameter and pass an array with [min,max]</p>
+					</section>
+
+					<section>
+						<h2>Binning: Customizations</h2>
+						<div id="imdb-ratings-hist4"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"bin": {"maxbins":50,"extent":[0,10]},
+									"field": "IMDB Rating"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#imdb-ratings-hist4", spec, opt);
+
+						</script>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Filter</h2>
+						<p>Sometimes we don't need to visualize all the data</p>
+						<p>A <a href="https://vega.github.io/vega-lite/docs/filter.html" target="_blank" rel="noopener noreferrer">filter</a> transform removes data matching some criteria</p>
+						<p>The criteria can be defined with an "<a href="https://vega.github.io/vega-lite/docs/types.html#expression" target="_blank" rel="noopener noreferrer">expression</a>" string or with a "<a href="https://vega.github.io/vega-lite/docs/predicate.html#field-predicate" target="_blank" rel="noopener noreferrer">predicate</a>" document</p>
+					</section>
+
+					<section>
+						<h2>Filter: Expressions</h2>
+						<p>Make a histogram after filtering the "movies.json" data to only R-rated films</p>
+						<p>As an expression, we use "datum" as a variable referring to the data, brackets to invoke the field name, and quote the value as a string</p>
+						<pre><code data-trim class='js' data-line-numbers=9>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"transform": [{
+								"filter":"datum['MPAA Rating'] == 'R'"
+							}],
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"bin": {"maxbins": 50,"extent":[0,10]},
+									"field": "IMDB Rating"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Filter: Predicates</h2>
+						<p>Make a histogram after filtering the "movies.json" data to only R-rated films</p>
+						<p>As a predicate, we use nested statements to filter the data</p>
+						<pre><code data-trim class='js' data-line-numbers=9-12>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"transform": [{
+								"filter": {
+									"field": "MPAA Rating",
+									"equal": "R"
+								}
+							}],
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"bin": {"maxbins": 50,"extent":[0,10]},
+									"field": "IMDB Rating"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Filters: Predicates</h2>
+						<div id="movies-mpaa2"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"transform": [{
+								"filter": {
+									"field": "MPAA Rating",
+									"equal": "R"
+								}
+							}],
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"bin": {"maxbins": 50,"extent":[0,10]},
+									"field": "IMDB Rating"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#movies-mpaa2", spec, opt);
+						</script>
+					</section>
+					
+					<section>
+						<h2>Filters: Combining</h2>
+						<p>Multiple filters can be combined using either the expression or predicate notations</p>
+						<p>Filter the data to R-rated ("MPAA Rating") dramas ("Major Genre") and plot the distribution of scores</p>
+					</section>
+
+					<section>
+						<h2>Filters: Combining with Expressions</h2>
+						<p>Use any of the <a href="https://www.w3schools.com/js/js_comparisons.asp" target="_blank" rel="noopener noreferrer">JavaScript comparison operators</a> like <code>&</code> for "and"</p>
+						<pre><code data-trim class='js' data-line-numbers=8-10>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"transform": [{
+								"filter": "datum['MPAA Rating'] == 'R' & datum['Major Genre'] == 'Drama'"
+							}],
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"bin": {"maxbins": 50,"extent":[0,10]},
+									"field": "IMDB Rating"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Filters: Combining with Predicates</h2>
+						<p>Use logical composition operators to combine multiple predicates</p>
+						<pre><code data-trim class='js' data-line-numbers=9-18|10-16|10-13|13-16>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"transform": [{
+								"filter": {
+									"and": [{
+										"field": "MPAA Rating",
+										"equal": "R"
+										},{
+										"field": "Major Genre",
+										"equal": "Drama"
+									}]
+								}
+							}],
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"bin": {"maxbins": 50,"extent":[0,10]},
+									"field": "IMDB Rating"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Filters: Combining</h2>
+						<div id="movies-mpaa3"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"transform": [{
+								"filter": {
+									"and": [{
+										"field": "MPAA Rating",
+										"equal": "R"
+										},{
+										"field": "Major Genre",
+										"equal": "Drama"
+									}]
+								}
+							}],
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"bin": {"maxbins": 50,"extent":[0,10]},
+									"field": "IMDB Rating"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#movies-mpaa3", spec, opt);
+						</script>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Time unit</h2>
+						<p><a href="https://vega.github.io/vega-lite/docs/timeunit.html" target="_blank" rel="noopener noreferrer">Time unit</a> converts timestamps into their component elements like year, month, week, day, hour, etc.</p>
+						<p>This can be helpful in combination with a variety of other transforms like aggregate</p>
+					</section>
+
+					<section>
+						<h2>Time unit</h2>
+						<p>Filter the data to before 2011 and plot the number of releases per year</p>
+						<p>We're combining filter, aggregate, and timeUnit in different places</p>
+						<pre><code data-trim class='js' data-line-numbers=8-13|10-12|11|16-19|18|21-23>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"transform": [{
+								"filter": {
+									"field": "Release Date", 
+									"timeUnit": "year", 
+									"lt": 2011
+								}
+							}],
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"timeUnit": "year",
+									"field": "Release Date"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Time unit</h2>
+						<div id="movies-release1"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"transform": [{
+								"filter": {
+									"field": "Release Date", 
+									"timeUnit": "year", 
+									"lt": 2011
+								}
+							}],
+							"mark": "bar",
+							"encoding": {
+								"x": {
+									"timeUnit": "year",
+									"field": "Release Date"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#movies-release1", spec, opt);
+						</script>
+					</section>
+
+					<section>
+						<h2>Time unit</h2>
+						<p>Time units can also be a string of consecutive time units for alternative time intervals</p>
+						<p>The number of movies released by date in the year</p>
+						<pre><code data-trim class='js' data-line-numbers=18>
+						{
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"transform": [{
+								"filter": {
+									"field": "Release Date", 
+									"timeUnit": "year", 
+									"lt": 2011
+								}
+							}],
+							"mark": "line",
+							"encoding": {
+								"x": {
+									"timeUnit": "monthdate",
+									"field": "Release Date"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Time unit</h2>
+						<div id="movies-release2"></div>
+						<script type="text/javascript">
+						var spec = {
+							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+							"width": 400,
+							"height": 400,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/movies.json"
+							},
+							"transform": [{
+								"filter": {
+									"field": "Release Date", 
+									"timeUnit": "year", 
+									"lt": 2011
+								}
+							}],
+							"mark": "line",
+							"encoding": {
+								"x": {
+									"timeUnit": "monthdate",
+									"field": "Release Date"
+								},
+								"y": {
+									"aggregate": "count"
+								}
+							}
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#movies-release2", spec, opt);
+						</script>
+					</section>
+					
+				</section>
+
+				<section>
+					<h2>Next classes</h2>
+					<p>Wednesday: Hosting and reading other datasets</p>
+					<p>Friday: In-class exercises using transforms</p>
+					<p>Weekly Assignment 13 due Monday, April 26 by midnight</p>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'h/v',
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealHighlight ]
+			});
+		</script>
+	</body>
+</html>
