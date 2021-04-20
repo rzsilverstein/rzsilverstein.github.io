@@ -94,10 +94,10 @@
 				
 				<section>
 					<section>
-						<h3>Visualization One</h3>
-						<p>Axis Label Color</p>
+						<h3>Visualization Two</h3>
+						<p>tooltip!</p>
 						
-						<div id="vis1"></div>
+						<div id="vis2"></div>
 						<script type="text/javascript">
 							var spec = {"$schema": "https://vega.github.io/schema/vega-lite/v4.json",
 					  "config": {
@@ -106,6 +106,7 @@
 					      "continuousWidth": 400
 					    }
 					  },
+					  
 					  "width":600,
 					  "height":400,
 					  "data": {
@@ -120,35 +121,35 @@
 					      	"field": "start",
 					      	"type": "quantitative",
 					      	"axis":{
-					      		"labelColor":"blue"
+					      		"labelColor":"grey"
 					      }
 					    },
 					    "y": {
 					      "field": "end",
 					      "type": "quantitative",
 					      "axis":{
-					      		"labelColor":"blue"
-					      }
+					      		"labelColor":"grey"
+					      },
+					      "tooltip": {"feild":"end", 
+					      "type": "quantitative"}
 					    }
 
 					  },
 					  "mark": {
 					  		"type":"bar"
-						}
-							};  /* JSON dump of your chart's spec */
+						}};
+							  /* JSON dump of your chart's spec */
 							var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
-							vegaEmbed("#vis1", spec, opt);
+							vegaEmbed("#vis2", spec, opt);
 						</script>
 					</section>
 					<section>
 						<p> code block </p>
 						<pre><code data-trim class='js' data-line-numbers=3,6-8>
 							...
-					    	"x": {
-					      		"field": "start",
-					      		"type": "quantitative",
-					      		"axis":{
-					      			"labelColor":"blue"
+					    	"encoding": {
+						      "tooltip": {"feild":"end", 
+						      "type": "quantitative"}
 					      	}
 										
 							...
