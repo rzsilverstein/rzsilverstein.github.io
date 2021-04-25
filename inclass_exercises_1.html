@@ -56,8 +56,8 @@
 						"mark":"bar",
 						"encoding": {
 							"y":{
-								"feild":"Origin State",
-								"type": "nominal",
+								"field":"Origin State",
+								"type":"nominal",
 								"sort":"-x"
 							},
 							"x":{
@@ -85,23 +85,24 @@
 						<div id="ex2"></div>
 						<script type="text/javascript">
 						var spec = {
-							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-							"width": 400,
-							"height": 400,
-							"data": {
-								"url": "https://vega.github.io/vega-datasets/data/birdstrikes.csv"
+						"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+						"width": 600,
+						"height": 400,
+						"data": {
+							"url": "https://vega.github.io/vega-datasets/data/birdstrikes.csv"
+						},
+						"mark":"bar",
+						"encoding": {
+							"x":{
+								"field":"Flight Date",
+								"timeUnit":"year",
+								"scale":{"domain":[1990,2002]},
+								"axis":{"labelAlign":"center","tickOffset":25}
 							},
-							"mark":"line",
-							"encoding":{
-								"x":{
-									"feild":"Flight Date",
-									"timeUnit":"year"
-								},
-								"y":{
-									"aggregate":"count"
-
-								}
+							"y":{
+								"aggregate":"count"
 							}
+						}
 						}
 						var opt = {"renderer": "canvas", "actions": false};
 						vegaEmbed("#ex2", spec, opt);
@@ -112,36 +113,33 @@
 				<section>
 					<section>
 						<h2>Exercise 3: Birdstrike heatmap</h2>
-						<p>Make a <a href="https://vega.github.io/vega-lite/docs/rect.html" target="_blank" rel="noopener noreferrer">heatmap</a> with the number of bird strikes by "Time of day" and "Phase of flight"</p>
-					</section>
-
-					<section>
-						<h2>Exercise 3: Birdstrike heatmap</h2>
 						<p>Your visualization and explanation goes here!</p>
 						<div id="ex3"></div>
 						<script type="text/javascript">
 						var spec = {
-							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-							"width": 400,
-							"height": 400,
-							"data": {
-								"url": "https://vega.github.io/vega-datasets/data/birdstrikes.csv"
+						"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+						"width": 400,
+						"height": 400,
+						"data": {
+							"url": "https://vega.github.io/vega-datasets/data/birdstrikes.csv"
+						},
+						"mark":"rect",
+						"encoding": {
+							"x":{
+								"field":"Time of day",
+								"type": "nominal"
 							},
-							"mark":"rect",
-							"encoding":{
-								"x":{
-									"feild":"Time of day",
-									"type":"nominal"
-								},
-								"y":{
-									"feild":"Phase of flight",
-									"type":"nominal"
-								},
-								"color":{
-									"aggregate":"count"
-								}
+							"y":{
+								"field":"Phase of flight",
+								"type": "nominal"
+							},
+							"color":{
+								"aggregate":"count"
 							}
 						}
+						}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#ex4", spec, opt);
 						var opt = {"renderer": "canvas", "actions": false};
 						vegaEmbed("#ex3", spec, opt);
 					</script>
@@ -192,21 +190,8 @@
 							"width": 400,
 							"height": 400,
 							"data": {
-								"url": "https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/export?gid=0&format=csv"
+								"url": "https://vega.github.io/vega-datasets/data/birdstrikes.csv"
 							},
-							"trandform":[{
-								"filter":"nytimes in datum ['links']"
-							}]
-							"mark":"rect",
-							"encoding":{
-								"x":{
-									"feild":"Time of day",
-									"type":"nominal"
-								},
-								"y":{
-									"feild":"Phase of flight",
-									"type":"nominal"
-								}
 						}
 						var opt = {"renderer": "canvas", "actions": false};
 						vegaEmbed("#ex4", spec, opt);
