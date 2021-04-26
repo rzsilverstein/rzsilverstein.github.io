@@ -22,7 +22,29 @@ body {font-family: "Lato", sans-serif}
     <p class="w3-opacity"><i>I dont know and dont want to be writing about it</i></p>
     <p class="w3-justify">On April 20th 2021 (AKA 4/20) Dogecoin became more valouable than companies like Ford.  Dogecoin was up 6,560% and its market cap hit $50 billion.  Did this occur because of a meme? This stock market instance falls into the same catergory as the GameStop situation - I wrote about Mark Cuban for that assignment. </p>
     <p class="w3-justify">Dogecoin was used for tipping users on Reddit for giving informative and entertaining posts! </p>
-    
+    <script>
+  {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height":400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/rzsilverstein/rzsilverstein.github.io/master/DOGE-USD.csv"
+    },
+    "mark":"line",
+    "encoding": {
+      "x":{
+        "field":"Date",
+        "timeUnit":"yearmonthdate"
+      },
+      "y":{
+        "aggregate":"mean",
+        "field":"Close",
+        "scale":{"type":"log"},
+        "axis":{"tickCount":5}
+      }
+    }
+  }
+  </script>
    
     <div class="w3-row w3-padding-32">
       <div class="w3-third">
@@ -39,7 +61,6 @@ body {font-family: "Lato", sans-serif}
       </div>
     </div>
   </div>
-
 
 
   <!-- The Contact Section -->
