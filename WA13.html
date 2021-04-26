@@ -40,6 +40,29 @@ body {font-family: "Lato", sans-serif}
     </div>
   </div>
 
+<script type="text/javascript">
+  {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height":400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/rzsilverstein/rzsilverstein.github.io/master/DOGE-USD.csv"
+  },
+  "mark":"line",
+  "encoding": {
+    "x":{
+      "field":"Date",
+      "timeUnit":"yearmonthdate"
+    },
+    "y":{
+      "aggregate":"mean",
+      "field":"Close",
+      "scale":{"type":"log"},
+      "axis":{"tickCount":5}
+    }
+  }
+}
+</script>
 
   <!-- The Contact Section -->
   <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
