@@ -190,8 +190,21 @@
 							"width": 400,
 							"height": 400,
 							"data": {
-								"url": "https://vega.github.io/vega-datasets/data/birdstrikes.csv"
+								"url": "https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/export?gid=0&format=csv"
 							},
+							"trandform":[{
+								"filter":"nytimes in datum ['links']"
+							}]
+							"mark":"rect",
+							"encoding":{
+								"x":{
+									"feild":"Time of day",
+									"type":"nominal"
+								},
+								"y":{
+									"feild":"Phase of flight",
+									"type":"nominal"
+								}
 						}
 						var opt = {"renderer": "canvas", "actions": false};
 						vegaEmbed("#ex4", spec, opt);
